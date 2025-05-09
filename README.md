@@ -1,65 +1,25 @@
-# 🛒 Acme Basket – Ruby Code Test
+# 🧠 Acme Basket – Ruby Code Test
 
-This is a simple data modeling exercise for **Acme Widget Co**, implemented in Ruby.
-
-The task was to implement a basket system with delivery pricing rules and special offers, with a clean, maintainable structure. The solution supports:
-
-- A configurable product catalogue
-- Delivery charges based on basket value
-- Promotional offers (e.g. buy-one-get-one-half-price)
-- A simple `add` method and a `total` method
-- Test examples as provided in the assignment
+Solution to the Acme Widget Co sales system assignment.
 
 ---
 
-## ✅ Requirements
+## ✅ My Approach
 
-- Ruby 2.7+
-- No external dependencies
+I broke the problem down into clean, testable components:
 
----
+- **Basket**: Handles adding items, applying discounts, and calculating the total.
+- **OfferRules**: A separate module that defines promotional logic (e.g., buy one red widget, get the second half price).
+- **Delivery Rules**: Passed into the basket and calculated based on subtotal.
+- **Product Catalogue**: Passed in during initialization to keep things flexible and decoupled.
 
-## 📦 Product Catalogue
-
-| Code | Product       | Price   |
-|------|---------------|---------|
-| R01  | Red Widget    | $32.95  |
-| G01  | Green Widget  | $24.95  |
-| B01  | Blue Widget   | $7.95   |
+I used Ruby hashes and lambdas to keep the configuration dynamic and easy to extend. This design allows new offers or delivery rules to be plugged in without modifying core logic.
 
 ---
 
-## 🚚 Delivery Rules
+## 💻 Running the Code
 
-| Basket Total     | Delivery Cost |
-|------------------|---------------|
-| < $50            | $4.95         |
-| $50 - $89.99     | $2.95         |
-| $90 or more      | Free          |
-
----
-
-## 🎁 Special Offers
-
-- **Buy One Red Widget, Get the Second Half Price**
-
----
-
-## 🧪 Example Baskets
-
-| Items                          | Expected Total |
-|--------------------------------|----------------|
-| B01, G01                       | $37.85         |
-| R01, R01                       | $54.37         |
-| R01, G01                       | $60.85         |
-| B01, B01, R01, R01, R01        | $98.27         |
-
----
-
-## 🚀 Usage
-
-### 1. Clone the repo
+Make sure you have Ruby installed, then:
 
 ```bash
-git clone https://github.com/yourusername/acme-basket.git
-cd acme-basket
+ruby test.rb
