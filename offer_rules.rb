@@ -1,4 +1,6 @@
+# Defines promotional offer logic as pluggable lambdas
 module OfferRules
+  # Applies "Buy One Get Second Half Price" for a specific product code
   def self.buy_one_get_second_half_price(code, price)
     {
       code: code,
